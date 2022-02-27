@@ -18,6 +18,9 @@
         <a class="nav-link" href="{{ route('categoria') }}">Categorias</a>
         <a class="nav-link" href="{{ route('cadastrar') }}">Cadastrar</a>
         <a class="nav-link" href="{{ route('logar') }}">Login</a>
+        @auth
+        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+        @endauth
       </div>
     </div>
     <a href="{{ route('ver_carrinho') }}" class="btn btn-sm"><i class="fa fa-shopping-cart"></i></a>

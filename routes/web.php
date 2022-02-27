@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UsuarioController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +46,9 @@ Route::match(['get', 'post'], '/{indice}/exluircarrinho', [ ProdutoController::c
 
 Route::post('/carrinho/finalizar', [ ProdutoController::class, 'finalizar' ])
     ->name('carrinho_finalizar');
+
+Route::match(['get'], '/logout', function(){
+    Auth::logout();
+    return redirect()->route("home");
+})
+    ->name('logout');

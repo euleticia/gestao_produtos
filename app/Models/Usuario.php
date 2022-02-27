@@ -10,7 +10,7 @@ class Usuario extends RModel implements Authenticatable
   protected $fillable = ['email', 'login', 'password', 'nome'];
 
    public function getAuthIdentifierName(){
-    return $this->getKey();
+    return 'login';
   }
     public function getAuthIdentifier(){
       return $this->login;

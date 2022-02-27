@@ -5,8 +5,12 @@
       <div class="card">
         <img src="{{ asset($prod->foto) }}" class="card-img-top" />
         <div class="card-bsody">
-          <h6 class="card-title">{{ $prod->nome }} - R$ {{ $prod->valor }}</h6>
+          <h6 class="card-title">{{ $prod->nome }} - R$ {{ $prod->valor }} - Disponiveis: {{$prod->quantidade}}</h6>
+          @if($prod->quantidade)
           <a href="{{ route('adicionar_carrinho', ['idproduto' => $prod->id ]) }}" class="btn btn-sm btn-secondary">Adicionar item</a>
+          @else
+          <a>Produto esgotado</a>
+          @endif
         </div>
       </div>
     </div>

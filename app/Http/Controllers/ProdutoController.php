@@ -84,7 +84,7 @@ class ProdutoController extends Controller
        $result = $vendaService->finalizarVenda($prods, Auth::user());
 
        if($result["status"] == "ok"){
-           $request()->session()->forget("cart");
+           $request->session()->forget("cart");
        }
 
        $request->session()->flash($result["status"], $result["message"]);        

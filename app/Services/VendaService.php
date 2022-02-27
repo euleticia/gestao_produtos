@@ -26,9 +26,11 @@ class VendaService
 
         $itens->quantidade = 1;
         $itens->valor = $p->valor;
-        $itens->dt_item = $p->$dtHoje->format("Y-m-d H:i:s");
+        $itens->dt_item = $dtHoje->format("Y-m-d H:i:s");
         $itens->produto_id = $p->id;
         $itens->pedido_id = $pedido->id;
+        $p->quantidade = $p->quantidade -1;
+        $p->save();
 
         $itens->save();
       }
